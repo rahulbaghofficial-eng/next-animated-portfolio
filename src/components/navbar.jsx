@@ -48,8 +48,7 @@ const Navbar = () => {
   };
 
   return (
-    // FIX: Replaced wrapper div with a defined height and vertical padding
-    <div className="h-24 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 flex items-center justify-between text-xl">
+    <div className="h-24 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 flex items-center justify-between text-xl relative z-50">
       {/* LINKS */}
       <div className="hidden md:flex gap-4 w-1/4 items-center">
         {links.map((link) => (
@@ -58,7 +57,7 @@ const Navbar = () => {
       </div>
 
       {/* LOGO */}
-      <div className="md:hidden lg:flex xl:w-1/4 xl:justify-center items-center">
+      <div className="flex md:hidden lg:flex xl:w-1/4 xl:justify-center items-center">
         <Link
           href="/"
           className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
@@ -72,29 +71,31 @@ const Navbar = () => {
 
       {/* SOCIAL */}
       <div className="hidden md:flex gap-4 w-1/4 items-center justify-end">
-        <Link href="/">
+        <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
           <Image src="/github.png" alt="GitHub" width={24} height={24} />
         </Link>
-        <Link href="/">
+        <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
           <Image src="/linkedin.png" alt="LinkedIn" width={24} height={24} />
         </Link>
-        <Link href="/">
+        <Link href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
           <Image src="/dribbble.png" alt="Dribbble" width={24} height={24} />
         </Link>
-        <Link href="/">
+        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
           <Image src="/facebook.png" alt="Facebook" width={24} height={24} />
         </Link>
-        <Link href="/">
+        <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
           <Image src="/instagram.png" alt="Instagram" width={24} height={24} />
         </Link>
-        <Link href="/">
+        <Link href="https://pinterest.com" target="_blank" rel="noopener noreferrer">
           <Image src="/pinterest.png" alt="Pinterest" width={24} height={24} />
         </Link>
       </div>
 
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">
+        {/* MENU BUTTON */}
         <button
+          aria-label="Toggle Menu"
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -102,29 +103,36 @@ const Navbar = () => {
             variants={topVariants}
             animate={open ? 'opened' : 'closed'}
             className="w-10 h-1 bg-black rounded origin-left"
-          ></motion.div>
+          />
           <motion.div
             variants={midVariants}
             animate={open ? 'opened' : 'closed'}
             className="w-10 h-1 bg-black rounded"
-          ></motion.div>
+          />
           <motion.div
             variants={bottomVariants}
             animate={open ? 'opened' : 'closed'}
             className="w-10 h-1 bg-black rounded origin-left"
-          ></motion.div>
+          />
         </button>
 
+        {/* MENU LIST */}
         {open && (
           <motion.div
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-2xl z-40"
+            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
             {links.map((link) => (
-              <motion.div variants={itemVariants} key={link.title}>
-                <Link href={link.url}>{link.title}</Link>
+              <motion.div
+                variants={itemVariants}
+                key={link.title}
+                className=""
+              >
+                <Link href={link.url} onClick={() => setOpen(false)}>
+                  {link.title}
+                </Link>
               </motion.div>
             ))}
           </motion.div>
