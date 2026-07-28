@@ -6,7 +6,7 @@ const Homepage = () => {
   return (
     <motion.div
       className="h-full "
-      initial={{ y: '-200' }}
+      initial={{ y: -200 }}
       animate={{ y: '0%' }}
       transition={{ duration: 1 }}
     >

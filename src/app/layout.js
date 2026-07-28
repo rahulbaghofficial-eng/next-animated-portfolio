@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Lama Dev Portfolio App',
+  title: 'Rahul Bagh Portfolio App',
   description: 'The best animated portfolio page',
 };
 
