@@ -71,22 +71,46 @@ const Navbar = () => {
 
       {/* SOCIAL */}
       <div className="hidden md:flex gap-4 w-1/4 items-center justify-end">
-        <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src="/github.png" alt="GitHub" width={24} height={24} />
         </Link>
-        <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src="/linkedin.png" alt="LinkedIn" width={24} height={24} />
         </Link>
-        <Link href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://dribbble.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src="/dribbble.png" alt="Dribbble" width={24} height={24} />
         </Link>
-        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src="/facebook.png" alt="Facebook" width={24} height={24} />
         </Link>
-        <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src="/instagram.png" alt="Instagram" width={24} height={24} />
         </Link>
-        <Link href="https://pinterest.com" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://pinterest.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src="/pinterest.png" alt="Pinterest" width={24} height={24} />
         </Link>
       </div>
@@ -102,7 +126,7 @@ const Navbar = () => {
           <motion.div
             variants={topVariants}
             animate={open ? 'opened' : 'closed'}
-            className="w-10 h-1 bg-black rounded origin-left"
+            className="w-10 h-1 rounded origin-left"
           />
           <motion.div
             variants={midVariants}
@@ -112,7 +136,7 @@ const Navbar = () => {
           <motion.div
             variants={bottomVariants}
             animate={open ? 'opened' : 'closed'}
-            className="w-10 h-1 bg-black rounded origin-left"
+            className="w-10 h-1 rounded origin-left"
           />
         </button>
 
@@ -122,14 +146,10 @@ const Navbar = () => {
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
+            className="fixed inset-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
             {links.map((link) => (
-              <motion.div
-                variants={itemVariants}
-                key={link.title}
-                className=""
-              >
+              <motion.div variants={itemVariants} key={link.title}>
                 <Link href={link.url} onClick={() => setOpen(false)}>
                   {link.title}
                 </Link>

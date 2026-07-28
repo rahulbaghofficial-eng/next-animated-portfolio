@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+// import heroImg from '../../public/hero.png'; // Direct import
 
 const Homepage = () => {
   return (
@@ -25,16 +26,13 @@ const Homepage = () => {
         </div>
         {/* TEXT CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col items-center justify-center gap-8">
-          {/* TITLE */}
           <h1 className="text-4xl md:text-6xl font-bold">
             Crafting Digital Experience, Designing Tomorrow
           </h1>
-          {/* DESC */}
           <p className="md:text-xl w-full">
             Welcome to my digital canvas, Where innovation and creativity meet
             to create exceptional digital experiences.
           </p>
-          {/* BUTTONS */}
           <div className="flex gap-4 w-full">
             <Link
               href="/portfolio"
